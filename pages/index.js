@@ -16,13 +16,6 @@ function Home() {
   }
   return (
     <div>
-      <Head>
-        <title>Welcome to landing page</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <h1>Simplest login</h1>
-
-      <h2>Proudly using Next.js, Mongodb and deployed with Now</h2>
       {loggedIn && (
         <>
           <p>Welcome {data.email}!</p>

@@ -9,7 +9,7 @@ const Signup = () => {
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault();//阻止提交遵循标准程序并基本上重定向页面
     fetch('/api/users', {
       method: 'POST',
       headers: {

@@ -1,11 +1,11 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const bcrypt = require('bcrypt');
-const v4 = require('uuid').v4;
+const v4 = require('uuid').v4;// 生成一个理论上不重复的128位16进制表示的数字
 const jwt = require('jsonwebtoken');
 const jwtSecret = 'SUPERSECRETE20220';
 
-const saltRounds = 10;
+const saltRounds = 10;//为打乱hash设置的随机参数
 const url = 'mongodb://localhost:27017';
 const dbName = 'simple-login-db';
 

@@ -8,10 +8,11 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault();//阻止遵循标准程序的提交并且重定向页面
     //call api
     fetch('/api/auth', {
       method: 'POST',
+        //请求返回头
       headers: {
         'Content-Type': 'application/json',
       },
@@ -19,7 +20,7 @@ const Login = () => {
         email,
         password,
       }),
-    })
+    })//返回一个promise对象r，取其中的data
       .then((r) => {
         return r.json();
       })

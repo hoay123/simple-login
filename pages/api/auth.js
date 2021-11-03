@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const jwtSecret = 'SUPERSECRETE20220';
+const jwtSecret = 'SUPERSECRETE20220';//用a.env
 
 const saltRounds = 10;
 const url = 'mongodb://localhost:27017';
@@ -18,6 +18,7 @@ function findUser(db, email, callback) {
   collection.findOne({email}, callback);
 }
 
+//验证密码
 function authUser(db, email, password, hash, callback) {
   const collection = db.collection('user');
   bcrypt.compare(password, hash, callback);
@@ -53,6 +54,8 @@ export default (req, res) => {
             if (err) {
               res.status(500).json({error: true, message: 'Auth Failed'});
             }
+
+            //验证成功则返回正确令牌
             if (match) {
               const token = jwt.sign(
                 {userId: user.userId, email: user.email},
